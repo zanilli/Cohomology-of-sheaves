@@ -1,4 +1,5 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[5pt]{article}
+\usepackage[a4paper, top = 2cm, bottom = 2cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
@@ -36,10 +37,17 @@
 \renewcommand{\bar}[1]{\overline{#1}}
 \renewcommand{\hat}[1]{\widehat{#1}}
 
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\Coimg}{Coim}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Spec}{Spec}
 
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
-\author{Felix Zillinger}
-\title{Cohomology of Sheaves}
+\author{B. Iversen, Felix Zillinger}
+\title{Cohomology of sheaves}
 \date{29.04.2020}
 
 \begin{document}
@@ -50,36 +58,40 @@
 
 	\newpage	
 	
+	\section*{Introduction}	
+	
+	This is an attempt, to rewrite B. Iversons book "Cohomology of Sheaves". Since the original book is very old, I will adapt certain passages to the modern language. 	This is also a project to experiment a little with Latex and the mathematics itself. If someone has tips to improve anything (it doesn't matter if its of mathematical, organisational or latex matter) he is welcome to propose those to me. 
+	
 	\section{Homological Algebra}
 	\subsection{Exact categories}
 	We consider a category with a \textbf{zero object} $0$, that is, for every object $A$ there is precisely one morphism $A \rightarrow 0$ and precisely one $0 \rightarrow A$. \\
 	A \textbf{zero morphism} $A \rightarrow B$ is a morphism which be factored $A \rightarrow 0 \rightarrow B$. \\
-	A \textbf{kernel}, $ker(f)$ of a morphism $f: A \rightarrow B$ is a pair $(ker(f),i)$, where $i: K \rightarrow A$ is a monomorphism with $f \circ i=0$ and such that for any morphism $g: X \rightarrow A$ with $f \circ g = 0$ there is a commutative diagram
+	A \textbf{kernel}, $\ker(f)$ of a morphism $f: A \rightarrow B$ is a pair $(\ker(f),i)$, where $i: K \rightarrow A$ is a monomorphism with $f \circ i=0$ and such that for any morphism $g: X \rightarrow A$ with $f \circ g = 0$ there is a commutative diagram
 	\begin{center}
 		\begin{tikzcd}
 			& X \arrow[dl,dotted,"\exists"] \arrow[d,"g"] \arrow[dr,"0"] \\
-			ker(f) \arrow[r,"i"]  & A \arrow[r,"f"]  & B
+			\ker(f) \arrow[r,"i"]  & A \arrow[r,"f"]  & B
 		\end{tikzcd}
 	\end{center} 
-	A \textbf{cokernel}, $coker(f)$ of $f: A \rightarrow B$ is a pair $(coker(f),p)$ where $p:B \rightarrow C$ is a epimorphism such that for any morphism $h: B \rightarrow Y$ with $h \circ f =0$ there is a commutative diagram
+	A \textbf{cokernel}, $\coker(f)$ of $f: A \rightarrow B$ is a pair $(\coker(f),p)$ where $p:B \rightarrow C$ is a epimorphism such that for any morphism $h: B \rightarrow Y$ with $h \circ f =0$ there is a commutative diagram
 	\begin{center}
 		\begin{tikzcd}
 			&Y & \\
-			coker(f) \arrow[ur,dotted,"\exists"] & B \arrow[u,"h"] \arrow[l,"p"] & A \arrow[l, "f"] \arrow[lu, "0"]
+			\coker(f) \arrow[ur,dotted,"\exists"] & B \arrow[u,"h"] \arrow[l,"p"] & A \arrow[l, "f"] \arrow[lu, "0"]
 		\end{tikzcd}
 	\end{center}
 	We shall assume that every morphism has a kernel and cokernel. \\
-	We define the image $im(f)$ of a morphism $f:A \rightarrow B$ to be the kernel of a cokernel. \\
-	We define the koimage $coim(f)$ of a morphism $f: A \rightarrow B$ to be the corkernel of the kernel.
+	We define the image $\Img (f)$ of a morphism $f:A \rightarrow B$ to be the kernel of a cokernel. \\
+	We define the koimage $\Coimg(f)$ of a morphism $f: A \rightarrow B$ to be the corkernel of the kernel.
 	Every morphism $f: A \rightarrow B$ has a \textbf{canonical factorization}
 	\begin{center}
 		\begin{tikzcd}
 			A \arrow[rrr,"f"] \arrow[dr]& & & B \\
-			& coim(f) \arrow[r, "f^{'}"] & im(f) \arrow[ur] &
+			& \Coimg(f) \arrow[r, "f^{'}"] & \Img(f) \arrow[ur] &
 		\end{tikzcd}
 	\end{center}
 	\begin{definition}
-		An \textbf{exact category} is a category with zero objects, kernels, cokernels, such that $coim(f) \xrightarrow{f^{'}} im(f)$ is always an isomorphism.
+		An \textbf{exact category} is a category with zero objects, kernels, cokernels, such that $\Coimg(f) \xrightarrow{f^{'}} \Img(f)$ is always an isomorphism.
 	\end{definition}
 	In the remaining part of this section we shall work in an exact category.
 	\begin{definition}
@@ -87,12 +99,315 @@
 		\begin{equation}
 			\dots \xrightarrow{f^{n-2}} A^{n-1} \xrightarrow{f^{n-1}} A^n \xrightarrow{f^{n}}A^{n+1} \xrightarrow{f^{n+1}} \dots
 		\end{equation}
-		is called \textbf{exact}, if $im(f^{n-1})=ker(f^n) \forall n$. \\
+		is called \textbf{exact}, if $\Img(f^{n-1})=\ker(f^n) \forall n$. \\
 	\end{definition}
 	\begin{proposition}
-		We consider the exact, commutative diagram
-		\begin{tikzcd}
-			A \arrow[r] & B \arrow[r] &
-		\end{tikzcd}
+		We consider commutative diagram with exact rows
+		\begin{center}
+			\begin{tikzcd}
+				A \arrow[r] \arrow[d, "a"] & B \arrow[r] \arrow[d, "b"] & C \arrow[d, "c"]  \arrow[r]& D \arrow[d, "d"] \\
+				\bar{A} \arrow[d] \arrow[r] & \bar{B}  \arrow[r] & \bar{C}  \arrow[r] & \bar{D} \\
+				0
+			\end{tikzcd}
+		\end{center}
+		Then the induced sequence 
+		\begin{equation}
+			\ker b \rightarrow \ker c \rightarrow \ker d
+		\end{equation}
+		is exact.
 	\end{proposition}
+	
+	\begin{proof}
+		We break the diagram into two pieces \\
+		\begin{center}
+			\begin{tikzcd}
+			0 \arrow[r]  & E \arrow[r] \arrow[d, "e"]  & C \arrow[r] \arrow[d, "c"]& D \arrow[d, "d"] \\
+			0 \arrow[r] & \bar{E} \arrow[r] & \bar{C} \arrow[r] & \bar{D}
+		\end{tikzcd} \ \ \ \ \ \ \
+		\begin{tikzcd}
+			A \arrow[r] \arrow[d, "a"]& B \arrow[r] \arrow[d, "b"] & E \arrow[r] \arrow[r] \arrow[d, "e"] & 0 \\
+			\bar{A} \arrow[d] \arrow[r] & \bar{B} \arrow[r] & \bar{E} \arrow[r] & 0 \\
+			0
+		\end{tikzcd}
+		\end{center}
+		We have to prove : 
+		\begin{proofenum}
+			\item 
+				\begin{equation}
+					0 \rightarrow \ker e \rightarrow \ker c \rightarrow \ker d 
+				\end{equation} is exact
+			\item 
+				$\ker b \rightarrow \ker e$ is surjective
+		\end{proofenum}
+		\begin{proofenum}
+			\item 
+				It is easy to check that $\ker e \rightarrow \ker c$ is a kernel for $\ker c \rightarrow D$.
+			\item
+				\begin{enumerate}
+					\item
+						Check that $\coker b \cong \coker e$
+					\item
+						The commutative diagram with exact rows
+						\begin{center}
+							\begin{tikzcd}
+								\bar{A} \arrow[r] \arrow[d] & \bar{B} \arrow[r] \arrow[d] & \bar{E} \arrow[r] \arrow[d] & 0 \\
+								0 \arrow[r] & \coker b \arrow[r] & \coker e \arrow[r] & 0
+							\end{tikzcd}
+						\end{center}
+						shows that $\bar{A} \rightarrow \Img b \rightarrow \Img e$ is exact: we replace $\bar{A}$ by the kernel of $\bar{B} \rightarrow \bar{E}$ and use (i).
+					\item 
+						This gives a commutative diagram with exact rows
+						\begin{center}
+							\begin{tikzcd}
+								A \arrow[r] \arrow[d, "\bar{a}"] & B \arrow[r] \arrow[d, "\bar{b}"] & E \arrow[r] \arrow[d, "\bar{e}"]  & 0 \\
+								\bar{A} \arrow[r] \arrow[d] & \Img b \arrow[r] \arrow[d] &  \Img e \arrow[r] \arrow[d] & 0 \\
+								0 & 0 & 0 &
+							\end{tikzcd}
+						\end{center}
+						Check that $\bar{e}$ is a cokernel for $\ker \bar{b} \rightarrow E$
+				\end{enumerate}
+		\end{proofenum}
+	\end{proof}		
+	The dual statement is
+	\begin{proposition}
+		Consider the commutative diagram with exact rows
+		\begin{center}
+			\begin{tikzcd}
+				& & & 0 \arrow[d] \\
+				A \arrow[r] \arrow[d, "a"] & B \arrow[r] \arrow[d, "b"] & C \arrow[r] \arrow[d, "c"] & D \arrow[d, "d"] \\
+				\bar{A} \arrow[r] & \bar{B} \arrow[r] & \bar{C} \arrow[r] & \bar{D}
+			\end{tikzcd}
+		\end{center}
+		The induced sequence 
+		\begin{equation}
+			\coker a \rightarrow \coker b \rightarrow \coker c
+		\end{equation}
+		is exact
+	\end{proposition}
+	\begin{proof}
+		Dualize the proof above.
+	\end{proof}
+	
+	\subsection{Homology of complexes}
+	
+	\subsection{Additive categories}
+	
+	\subsection{Homotopy theory of complexes}
+	
+	\subsection{Abelian categories}
+	
+	\subsection{Injective resolutions}
+	
+	\subsection{Right derived functors}
+	
+	\subsection{Composition products}
+	
+	\subsection{Resumé of the projective case}
+	
+	\subsection{Complexes of free abelian groups}
+	
+	\subsection{Sign rules}
+	
+	\newpage
+	
+	\section{Sheaf theory}
+	
+	\setcounter{subsection}{-1}
+	
+	\subsection{Direct limits of abelian groups}
+	
+	\subsection{Presheaves and sheaves}
+	
+	\subsection{Localization}
+	
+	\subsection{Cohomology of sheaves}
+	
+	\subsection{Direct and inverse image of sheaves}
+	
+	\subsection{Continuous maps and cohomology}
+	
+	\subsection{Locally closed subspaces}
+	
+	\subsection{Cup products}
+	
+	\subsection{Tensor product of sheaves}
+	
+	\subsection{Local cohomology}
+	
+	\subsection{Cross products}
+	
+	\subsection{Flat sheaves}
+	
+	\subsection{Hom(E,F)}
+	
+	\newpage
+	
+	\section{Cohomology with compact support}
+	
+	\subsection{Locally compact spaces}
+	
+	\subsection{Soft sheaves}
+	
+	\subsection{Soft sheaves on the reals}
+	
+	\subsection{The exponential sequence}
+	
+	\subsection{Cohomology of direct limits}
+	
+	\subsection{Proper base change and proper homotopy}
+	
+	\subsection{Locally closed subspaces}
+	
+	\subsection{Cohomology of the n-sphere}
+	
+	\subsection{Dimension of locally compact spaces}
+	
+	\subsection{Wilder's finiteness theorem}
+	
+	\newpage
+	
+	\section{Cohomology and analysis}
+	
+	\subsection{Homotopy invariance of sheaf cohomology}
+	
+	\subsection{Locally compact spaces, countable at infinity}
+	
+	\subsection{Complex logarithms}
+	
+	\subsection{Complex curve integrals. The monodromy theorem}
+	
+	\subsection{The inhomogenous Cauchy-Riemann equations}
+	
+	\subsection{Existence theorems for analytic functions}
+	
+	\subsection{De Rham theorem}
+	
+	\subsection{Relative cohomology}
+	
+	\subsection{Classification of locally constant sheaves}
+	
+	\newpage
+	
+	\section{Duality with coefficients in a field}
+	
+	\subsection{Sheaves of linear forms}
+	
+	\subsection{Verdier duality}
+	
+	\subsection{Orientation of topological manifolds}
+	
+	\subsection{Submanifolds of the real spaces of codimension 1}
+	
+	\subsection{Duality for a subspace}
+	
+	\subsection{Alexander duality}
+	
+	\subsection{Residue theorem for n-1 forms on real spaces}	
+	
+	\newpage 
+	
+	\section{Poincare duality with general coefficients}
+	
+	\subsection{Verdier duality}
+	
+	\subsection{The dualizing complex D}
+	
+	\subsection{Lefschetz duality}
+	
+	\subsection{Algebraic duality}
+	
+	\subsection{Universal coefficients}
+	
+	\subsection{Alexander duality}
+	
+	\newpage
+	
+	\section{Direct image with proper support}
+	
+	\subsection{The functor f!}
+	
+	\subsection{The Kuenneth formula}
+	
+	\subsection{Global form of Verdier duality}
+	
+	\subsection{Covering spaces}
+	
+	\subsection{Local form of Verdier duality}
+	
+	\newpage
+	
+	\section{Charateristic classes}
+	
+	\subsection{Local duality}
+	
+	\subsection{Thom class}
+	
+	\subsection{Oriented microbundles}
+	
+	\subsection{Cohomology of real projective space}
+	
+	\subsection{Stiefel-Whitney classes}
+	
+	\subsection{Chern classes}
+	
+	\subsection{Pontrjagin classes}
+	
+	\newpage	
+	
+	\section{Borel Moore homology}
+	
+	\subsection{Proper homotopy invariance}
+	
+	\subsection{Restriction maps}
+	
+	\subsection{Cap products}
+	
+	\subsection{Poincare duality}
+	
+	\subsection{Cross products and the Kuenneth formula}
+	
+	\subsection{Diagonal class of an oriented manifold}
+	
+	\subsection{Gysin maps}
+	
+	\subsection{Lefschetz fixed point formular}
+	
+	\subsection{Wu's formula}
+	
+	\subsection{Preservation of numbers}
+	
+	\subsection{Trace maps in homology}
+	
+	\newpage
+	
+	\section{Applications to algebraic geometry}
+	
+	\subsection{Dimension of algebraic varieties}
+	
+	\subsection{The cohomology class of a subvariety}
+	
+	\subsection{Homology class of a subvariety}
+	
+	\subsection{Intersection theory}
+	
+	\subsection{Algebraic families of cycles}
+	
+	\subsection{Algebraic cycles and chern classes}
+	
+	\newpage
+	
+	\section{Derived categories}
+	
+	\subsection{Categories of fractions}
+	
+	\subsection{The derived category D(A)} 
+	
+	\subsection{Triangles associated to an exact sequence}
+	
+	\subsection{Yoneda extensions}
+	
+	\subsection{Octahedra}
+	
+	\subsection{Localization}
+	
 \end{document}

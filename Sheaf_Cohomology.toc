@@ -1,2 +1,102 @@
-\contentsline {section}{\numberline {1}Homological Algebra}{2}% 
-\contentsline {subsection}{\numberline {1.1}Exact categories}{2}% 
+\contentsline {section}{\numberline {1}Homological Algebra}{4}% 
+\contentsline {subsection}{\numberline {1.1}Exact categories}{4}% 
+\contentsline {subsection}{\numberline {1.2}Homology of complexes}{6}% 
+\contentsline {subsection}{\numberline {1.3}Additive categories}{6}% 
+\contentsline {subsection}{\numberline {1.4}Homotopy theory of complexes}{6}% 
+\contentsline {subsection}{\numberline {1.5}Abelian categories}{6}% 
+\contentsline {subsection}{\numberline {1.6}Injective resolutions}{6}% 
+\contentsline {subsection}{\numberline {1.7}Right derived functors}{6}% 
+\contentsline {subsection}{\numberline {1.8}Composition products}{6}% 
+\contentsline {subsection}{\numberline {1.9}Resum\IeC {\'e} of the projective case}{6}% 
+\contentsline {subsection}{\numberline {1.10}Complexes of free abelian groups}{6}% 
+\contentsline {subsection}{\numberline {1.11}Sign rules}{6}% 
+\contentsline {section}{\numberline {2}Sheaf theory}{7}% 
+\contentsline {subsection}{\numberline {2.0}Direct limits of abelian groups}{7}% 
+\contentsline {subsection}{\numberline {2.1}Presheaves and sheaves}{7}% 
+\contentsline {subsection}{\numberline {2.2}Localization}{7}% 
+\contentsline {subsection}{\numberline {2.3}Cohomology of sheaves}{7}% 
+\contentsline {subsection}{\numberline {2.4}Direct and inverse image of sheaves}{7}% 
+\contentsline {subsection}{\numberline {2.5}Continuous maps and cohomology}{7}% 
+\contentsline {subsection}{\numberline {2.6}Locally closed subspaces}{7}% 
+\contentsline {subsection}{\numberline {2.7}Cup products}{7}% 
+\contentsline {subsection}{\numberline {2.8}Tensor product of sheaves}{7}% 
+\contentsline {subsection}{\numberline {2.9}Local cohomology}{7}% 
+\contentsline {subsection}{\numberline {2.10}Cross products}{7}% 
+\contentsline {subsection}{\numberline {2.11}Flat sheaves}{7}% 
+\contentsline {subsection}{\numberline {2.12}Hom(E,F)}{7}% 
+\contentsline {section}{\numberline {3}Cohomology with compact support}{8}% 
+\contentsline {subsection}{\numberline {3.1}Locally compact spaces}{8}% 
+\contentsline {subsection}{\numberline {3.2}Soft sheaves}{8}% 
+\contentsline {subsection}{\numberline {3.3}Soft sheaves on the reals}{8}% 
+\contentsline {subsection}{\numberline {3.4}The exponential sequence}{8}% 
+\contentsline {subsection}{\numberline {3.5}Cohomology of direct limits}{8}% 
+\contentsline {subsection}{\numberline {3.6}Proper base change and proper homotopy}{8}% 
+\contentsline {subsection}{\numberline {3.7}Locally closed subspaces}{8}% 
+\contentsline {subsection}{\numberline {3.8}Cohomology of the n-sphere}{8}% 
+\contentsline {subsection}{\numberline {3.9}Dimension of locally compact spaces}{8}% 
+\contentsline {subsection}{\numberline {3.10}Wilder's finiteness theorem}{8}% 
+\contentsline {section}{\numberline {4}Cohomology and analysis}{9}% 
+\contentsline {subsection}{\numberline {4.1}Homotopy invariance of sheaf cohomology}{9}% 
+\contentsline {subsection}{\numberline {4.2}Locally compact spaces, countable at infinity}{9}% 
+\contentsline {subsection}{\numberline {4.3}Complex logarithms}{9}% 
+\contentsline {subsection}{\numberline {4.4}Complex curve integrals. The monodromy theorem}{9}% 
+\contentsline {subsection}{\numberline {4.5}The inhomogenous Cauchy-Riemann equations}{9}% 
+\contentsline {subsection}{\numberline {4.6}Existence theorems for analytic functions}{9}% 
+\contentsline {subsection}{\numberline {4.7}De Rham theorem}{9}% 
+\contentsline {subsection}{\numberline {4.8}Relative cohomology}{9}% 
+\contentsline {subsection}{\numberline {4.9}Classification of locally constant sheaves}{9}% 
+\contentsline {section}{\numberline {5}Duality with coefficients in a field}{10}% 
+\contentsline {subsection}{\numberline {5.1}Sheaves of linear forms}{10}% 
+\contentsline {subsection}{\numberline {5.2}Verdier duality}{10}% 
+\contentsline {subsection}{\numberline {5.3}Orientation of topological manifolds}{10}% 
+\contentsline {subsection}{\numberline {5.4}Submanifolds of the real spaces of codimension 1}{10}% 
+\contentsline {subsection}{\numberline {5.5}Duality for a subspace}{10}% 
+\contentsline {subsection}{\numberline {5.6}Alexander duality}{10}% 
+\contentsline {subsection}{\numberline {5.7}Residue theorem for n-1 forms on real spaces}{10}% 
+\contentsline {section}{\numberline {6}Poincare duality with general coefficients}{11}% 
+\contentsline {subsection}{\numberline {6.1}Verdier duality}{11}% 
+\contentsline {subsection}{\numberline {6.2}The dualizing complex D}{11}% 
+\contentsline {subsection}{\numberline {6.3}Lefschetz duality}{11}% 
+\contentsline {subsection}{\numberline {6.4}Algebraic duality}{11}% 
+\contentsline {subsection}{\numberline {6.5}Universal coefficients}{11}% 
+\contentsline {subsection}{\numberline {6.6}Alexander duality}{11}% 
+\contentsline {section}{\numberline {7}Direct image with proper support}{12}% 
+\contentsline {subsection}{\numberline {7.1}The functor f!}{12}% 
+\contentsline {subsection}{\numberline {7.2}The Kuenneth formula}{12}% 
+\contentsline {subsection}{\numberline {7.3}Global form of Verdier duality}{12}% 
+\contentsline {subsection}{\numberline {7.4}Covering spaces}{12}% 
+\contentsline {subsection}{\numberline {7.5}Local form of Verdier duality}{12}% 
+\contentsline {section}{\numberline {8}Charateristic classes}{13}% 
+\contentsline {subsection}{\numberline {8.1}Local duality}{13}% 
+\contentsline {subsection}{\numberline {8.2}Thom class}{13}% 
+\contentsline {subsection}{\numberline {8.3}Oriented microbundles}{13}% 
+\contentsline {subsection}{\numberline {8.4}Cohomology of real projective space}{13}% 
+\contentsline {subsection}{\numberline {8.5}Stiefel-Whitney classes}{13}% 
+\contentsline {subsection}{\numberline {8.6}Chern classes}{13}% 
+\contentsline {subsection}{\numberline {8.7}Pontrjagin classes}{13}% 
+\contentsline {section}{\numberline {9}Borel Moore homology}{14}% 
+\contentsline {subsection}{\numberline {9.1}Proper homotopy invariance}{14}% 
+\contentsline {subsection}{\numberline {9.2}Restriction maps}{14}% 
+\contentsline {subsection}{\numberline {9.3}Cap products}{14}% 
+\contentsline {subsection}{\numberline {9.4}Poincare duality}{14}% 
+\contentsline {subsection}{\numberline {9.5}Cross products and the Kuenneth formula}{14}% 
+\contentsline {subsection}{\numberline {9.6}Diagonal class of an oriented manifold}{14}% 
+\contentsline {subsection}{\numberline {9.7}Gysin maps}{14}% 
+\contentsline {subsection}{\numberline {9.8}Lefschetz fixed point formular}{14}% 
+\contentsline {subsection}{\numberline {9.9}Wu's formula}{14}% 
+\contentsline {subsection}{\numberline {9.10}Preservation of numbers}{14}% 
+\contentsline {subsection}{\numberline {9.11}Trace maps in homology}{14}% 
+\contentsline {section}{\numberline {10}Applications to algebraic geometry}{15}% 
+\contentsline {subsection}{\numberline {10.1}Dimension of algebraic varieties}{15}% 
+\contentsline {subsection}{\numberline {10.2}The cohomology class of a subvariety}{15}% 
+\contentsline {subsection}{\numberline {10.3}Homology class of a subvariety}{15}% 
+\contentsline {subsection}{\numberline {10.4}Intersection theory}{15}% 
+\contentsline {subsection}{\numberline {10.5}Algebraic families of cycles}{15}% 
+\contentsline {subsection}{\numberline {10.6}Algebraic cycles and chern classes}{15}% 
+\contentsline {section}{\numberline {11}Derived categories}{16}% 
+\contentsline {subsection}{\numberline {11.1}Categories of fractions}{16}% 
+\contentsline {subsection}{\numberline {11.2}The derived category D(A)}{16}% 
+\contentsline {subsection}{\numberline {11.3}Triangles associated to an exact sequence}{16}% 
+\contentsline {subsection}{\numberline {11.4}Yoneda extensions}{16}% 
+\contentsline {subsection}{\numberline {11.5}Octahedra}{16}% 
+\contentsline {subsection}{\numberline {11.6}Localization}{16}% 
