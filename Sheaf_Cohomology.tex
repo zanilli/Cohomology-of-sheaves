@@ -1,0 +1,98 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{fourier}
+\usepackage{enumitem}
+\usepackage{titling}
+\usepackage{tikz-cd}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}{Claim}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{attention}{Attention!}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newlist{proofenum}{enumerate}{1}
+\setlist[proofenum]{label=(\roman*)}
+
+\renewcommand{\bar}[1]{\overline{#1}}
+\renewcommand{\hat}[1]{\widehat{#1}}
+
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Felix Zillinger}
+\title{Cohomology of Sheaves}
+\date{29.04.2020}
+
+\begin{document}
+	\numberwithin{equation}{subsection}
+	\numberwithin{theorem}{subsection}
+	\maketitle 
+	\tableofcontents
+
+	\newpage	
+	
+	\section{Homological Algebra}
+	\subsection{Exact categories}
+	We consider a category with a \textbf{zero object} $0$, that is, for every object $A$ there is precisely one morphism $A \rightarrow 0$ and precisely one $0 \rightarrow A$. \\
+	A \textbf{zero morphism} $A \rightarrow B$ is a morphism which be factored $A \rightarrow 0 \rightarrow B$. \\
+	A \textbf{kernel}, $ker(f)$ of a morphism $f: A \rightarrow B$ is a pair $(ker(f),i)$, where $i: K \rightarrow A$ is a monomorphism with $f \circ i=0$ and such that for any morphism $g: X \rightarrow A$ with $f \circ g = 0$ there is a commutative diagram
+	\begin{center}
+		\begin{tikzcd}
+			& X \arrow[dl,dotted,"\exists"] \arrow[d,"g"] \arrow[dr,"0"] \\
+			ker(f) \arrow[r,"i"]  & A \arrow[r,"f"]  & B
+		\end{tikzcd}
+	\end{center} 
+	A \textbf{cokernel}, $coker(f)$ of $f: A \rightarrow B$ is a pair $(coker(f),p)$ where $p:B \rightarrow C$ is a epimorphism such that for any morphism $h: B \rightarrow Y$ with $h \circ f =0$ there is a commutative diagram
+	\begin{center}
+		\begin{tikzcd}
+			&Y & \\
+			coker(f) \arrow[ur,dotted,"\exists"] & B \arrow[u,"h"] \arrow[l,"p"] & A \arrow[l, "f"] \arrow[lu, "0"]
+		\end{tikzcd}
+	\end{center}
+	We shall assume that every morphism has a kernel and cokernel. \\
+	We define the image $im(f)$ of a morphism $f:A \rightarrow B$ to be the kernel of a cokernel. \\
+	We define the koimage $coim(f)$ of a morphism $f: A \rightarrow B$ to be the corkernel of the kernel.
+	Every morphism $f: A \rightarrow B$ has a \textbf{canonical factorization}
+	\begin{center}
+		\begin{tikzcd}
+			A \arrow[rrr,"f"] \arrow[dr]& & & B \\
+			& coim(f) \arrow[r, "f^{'}"] & im(f) \arrow[ur] &
+		\end{tikzcd}
+	\end{center}
+	\begin{definition}
+		An \textbf{exact category} is a category with zero objects, kernels, cokernels, such that $coim(f) \xrightarrow{f^{'}} im(f)$ is always an isomorphism.
+	\end{definition}
+	In the remaining part of this section we shall work in an exact category.
+	\begin{definition}
+		A sequence of morphisms
+		\begin{equation}
+			\dots \xrightarrow{f^{n-2}} A^{n-1} \xrightarrow{f^{n-1}} A^n \xrightarrow{f^{n}}A^{n+1} \xrightarrow{f^{n+1}} \dots
+		\end{equation}
+		is called \textbf{exact}, if $im(f^{n-1})=ker(f^n) \forall n$. \\
+	\end{definition}
+	\begin{proposition}
+		We consider the exact, commutative diagram
+		\begin{tikzcd}
+			A \arrow[r] & B \arrow[r] &
+		\end{tikzcd}
+	\end{proposition}
+\end{document}
