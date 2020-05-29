@@ -15,6 +15,8 @@
 \usepackage{titling}
 \usepackage{tikz-cd}
 
+\usepackage{courier}
+
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -188,6 +190,42 @@
 		Dualize the proof above.
 	\end{proof}
 	
+	\begin{corollary}
+		Consider morphisms $f: X \rightarrow Y$ and $g: Y \rightarrow Z$. The following sequence
+		\begin{equation}
+			0 \rightarrow \ker f \rightarrow \ker g \circ f \rightarrow \ker g \rightarrow \coker f \rightarrow \coker g \circ f \rightarrow \coker g \rightarrow 0
+		\end{equation}
+		is exact
+	\end{corollary}	
+	
+	\begin{proof}
+		Apply 1.3 and 1.4 to the two diagrams
+		\begin{center}
+			\begin{tikzcd}
+				0 \arrow[d] \arrow[r] & \ker f \arrow[d] \arrow[r] & X \arrow[d, "g \circ f"] \arrow[r, "f"] & Y \arrow[d, "g"] \arrow[r] & \coker f \arrow[d] \\
+				0 \arrow[d] \arrow[r] & 0 \arrow[d] \arrow[r] & Z \arrow[r] & Z \arrow[r] & 0 \\
+				0 & 0 & & 0 \arrow[d] & 0 \arrow[d] \\
+				0 \arrow[d] \arrow[r] & X \arrow[d, "f"] \arrow[r, "id"] & X \arrow[d, "g \circ f"] \arrow[r] & 0 \arrow[d] \arrow[r] & 0 \arrow[d] \\
+				\ker g \arrow[r] & Y \arrow[r, "g"] & Z \arrow[r] & \coker g \arrow[r] & 0
+			\end{tikzcd}
+		\end{center}
+	\end{proof}		
+	
+	\begin{lemma}{(Snake Lemma)}
+		Consider the commutative diagram with exact rows
+		\begin{center}
+			\begin{tikzcd}
+				& & & & 0 \arrow[d] \\
+				A \arrow[d, "a"] \arrow[r] & B  \arrow[r] \arrow[d, "b"] & C \arrow[r] \arrow[d, "c"] & D \arrow[r] \arrow[d, "d"] & E \arrow[d, "e"] \\
+				\bar{A} \arrow[d] \arrow[r] & \bar{B} \arrow[r] & \bar{C} \arrow[r] & \bar{D} \arrow[r] & \bar{E} \\
+				0 & & & & 
+			\end{tikzcd}
+		\end{center}
+		Then there is an exact sequence
+		\begin{equation}
+			\ker b \rightarrow \ker c \rightarrow \ker d \xrightarrow{\partial} \coker b \rightarrow \coker c \rightarrow \coker d
+		\end{equation}
+	\end{lemma}
 	\subsection{Homology of complexes}
 	
 	\subsection{Additive categories}
